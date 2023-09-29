@@ -2,7 +2,7 @@ package section3;
 
 import org.junit.jupiter.api.Test;
 
-public class OperaratorsOperandsExpressions {
+public class OperatorsOperandsExpressions {
 
 
     @Test
