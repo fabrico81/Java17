@@ -14,6 +14,14 @@ public class MoreLists {
         List<String> groceryList = new ArrayList<>(list);
         groceryList.add("milk");
         System.out.println(groceryList);
+        Integer integer = 3;
+        System.out.println(integer.getClass().getName());
 
+        Integer [] array = {integer};
+        System.out.println(array[0]);
+        System.out.println(array.getClass().getName());
+
+        int intPrimitive = 9;
+        System.out.println(intPrimitive);
     }
 }
