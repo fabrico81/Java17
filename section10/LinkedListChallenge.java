@@ -24,42 +24,57 @@ public class LinkedListChallenge {
         addPlace(placeToVisit, new Place("Adelaide", 1374));
         addPlace(placeToVisit, new Place("Alice Spring", 2771));
         addPlace(placeToVisit, new Place("Melbourne", 877));
-
         placeToVisit.addFirst(new Place("Sidney", 0));
         printMenu();
 
         ListIterator<Place> it = placeToVisit.listIterator();
 
-        boolean stopIt = true;
+        boolean stopIt = false;
+        boolean forward = true;
         Scanner scanner = new Scanner(System.in);
-        while (stopIt) {
-            switch (scanner.nextLine()) {
+        if (!it.hasPrevious()) {
+            forward = true;
+            it.next();
+        }
+        if(!it.hasNext()) {
+            System.out.println("Final:" + it.previous());
+            forward = false;
+        }
+        while (!stopIt) {
+            String menu = scanner.nextLine().toUpperCase();
 
+            switch (menu) {
                 case "F" -> {
-                    if (it.hasNext()) {
-                        System.out.println("Moved Forward To:" + it.next());
+                    System.out.println("User wants to move forward");
+                    if (forward) {
+                        if (it.hasNext()) {
+                            System.out.println("Moved Forward To: " + it.next());
+                            it.next();
+                        }
+                    } else {
+                        System.out.println("You Finished Your Trip");
                     }
                 }
                 case "B" -> {
-                    if (it.hasPrevious()) {
-                        System.out.println("Moved Backward" + it.previous());
-                    } else {
-                        System.out.println("You are in Sidney");
+                    if (forward) {
+                        if (it.hasPrevious()) {
+                            System.out.println("Moved Backward: " + it.previous());
+                        } else {
+                            System.out.println("You cannot go back");
+                        }
                     }
                 }
                 case "L" -> {
-                    System.out.println("List the town /n" + placeToVisit );
+                    System.out.println("List the town \n" + placeToVisit);
                 }
                 case "M" -> {
                     System.out.println("Menu");
                     printMenu();
                 }
 
-                default -> stopIt = false;
+                default -> stopIt = true;
             }
         }
-
-
     }
 
     private static void addPlace(LinkedList<Place> list, Place place) {
@@ -93,6 +108,6 @@ public class LinkedListChallenge {
                 (L)ist Places
                 (M)enu
                 (Q)uit""");
-        System.out.print(": ");
+        System.out.print("Enter value: ");
     }
 }
