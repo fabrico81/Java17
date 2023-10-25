@@ -88,3 +88,9 @@ An iterator can only traverse a collection in the forward direction, and only ha
 A ListIterator can traverse a collection in either the forward or backward direction, and in addition to the 
 remove method, it also supports the add and set methods.
 
+#### Auto-boxing
+https://docs.oracle.com/en/java/javase/17/language/autoboxing.html
+Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes.
+For example, converting an int to an Integer, a double to a Double, and so on. If the conversion goes the other way, this is called unboxing.
+
+#### Enum
